@@ -96,6 +96,3 @@ TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Disable Mouse Cursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
-
-# PB OFFICIAL
-PB_OFFICIAL := false
