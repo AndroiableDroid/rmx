@@ -16,4 +16,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/omni_RMX1811.mk
+	device/realme/RMX1811/omni_RMX1811.mk
