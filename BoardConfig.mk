@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-DEVICE_PATH := device/realme/rmx1811
+DEVICE_PATH := device/realme/RMX1811
 
 # Architecture
 TARGET_BOARD_SUFFIX := _64
