@@ -10,7 +10,7 @@ jobs:
       VERSION: '2.9.0_test'
       VENDOR: 'realme'
       CODENAME: 'RXM1811'
-      BUILD_LUNCH: '<omni_RMX1811-userdebug>'
+      BUILD_LUNCH: 'omni_RMX1811-userdebug'
       TEST_BUILD: 'true'
     working_directory: /home/builder/pitchblack
     steps:
