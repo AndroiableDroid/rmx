@@ -92,6 +92,7 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TARGET_HW_DISK_ENCRYPTION := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 
 # Disable Mouse Cursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
