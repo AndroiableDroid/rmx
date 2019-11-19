@@ -92,6 +92,8 @@ on init
     setprop ro.hardware.keystore msm8953
     setprop ro.hardware.gatekeeper msm8953
     setprop ro.build.system_root_image true
+
+on property:ro.crypto.state=encrypted
     start hwservicemanager
     start keymaster-3-0
     start gatekeeper-1-0
