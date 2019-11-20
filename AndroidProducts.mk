@@ -1,4 +1,3 @@
-
 #
 # Copyright (C) 2017 The Android Open Source Project
 #
@@ -16,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-	device/realme/RMX1811/omni_RMX1811.mk
+	$(LOCAL_DIR)/omni_RMX1811.mk
