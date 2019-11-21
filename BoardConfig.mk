@@ -40,6 +40,7 @@ TARGET_NO_BOOTLOADER := true
 # Crypto
 TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_PROVIDES_KEYMASTER := true
 
 # Encryption
 PLATFORM_SECURITY_PATCH := 2025-12-31
