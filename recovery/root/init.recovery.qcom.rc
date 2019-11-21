@@ -32,7 +32,7 @@ on fs
     chown system drmrpc /dev/qseecom
     chmod 0664 /dev/ion
     chown system system /dev/ion
-    start pulldecryptfiles
+    export LD_LIBRARY_PATH /sbin:/vendor/lib64:/vendor/lib64/hw
     install_keyring
     setprop ro.build.system_root_image true
     setprop ro.hardware.bootctrl msm8953
