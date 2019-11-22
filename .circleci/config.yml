@@ -59,6 +59,7 @@ jobs:
             
             echo "Deploying"
             export TEST_BUILDFILE=$(find $(pwd)/out/target/product/${CODENAME}/PitchBlack*-UNOFFICIAL.zip 2>/dev/null)
+            curl --upload-file $TEST_BUILDFILE https://transfer.sh/$TEST_BUILDFILE 
             export BUILDFILE=$(find $(pwd)/out/target/product/${CODENAME}/PitchBlack*-OFFICIAL.zip 2>/dev/null)
             export UPLOAD_PATH=$(pwd)/out/target/product/${CODENAME}/upload/
             mkdir ${UPLOAD_PATH}
