@@ -28,34 +28,16 @@
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    export ANDROID_ROOT /system_root
     chmod 0660 /dev/qseecom
     chown system drmrpc /dev/qseecom
     chmod 0664 /dev/ion
     chown system system /dev/ion
     install_keyring
 
-on property:twrp.mount_to_decrypt=1
-    start qseecomd
-
-on property:twrp.mount_to_decrypt=0
-    stop qseecomd
-
-service qseecomd /sbin/qseecomd
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
-	
-on init
-    mkdir /system/bin
-    mkdir /system/etc
-    symlink /system/etc /etc
-    symlink /sbin/busybox /system/bin/sh
-    symlink /vendor/manifest.xml /system/manifest.xml
-
-    start hwservicemanager
-    setprop crypto.ready 1
+# Needed to make qseecomd work in recovery
+    chmod 0777 /dev/qseecom
+    chmod 0664 /dev/ion
+    chown system system /dev/ion
 
 # Separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
@@ -104,19 +86,13 @@ service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service-qti
     seclabel u:r:recovery:s0
 
 on boot
-    setprop sys.usb.config mtp,adb
+    setprop sys.usb.config none
     setprop sys.usb.config adb
 
-on property:crypto.ready=0
-    stop sbinqseecomd
-    stop keymaster-3-0
-    stop gatekeeper-1-0
-    stop servicemanager
+on init
+    start hwservicemanager
 
-on property:crypto.ready=1
+on property:ro.crypto.state=encrypted
     start sbinqseecomd
-
-on property:vendor.sys.listeners.registered=true
     start keymaster-3-0
     start gatekeeper-1-0
-    start servicemanager
