@@ -5,7 +5,7 @@ jobs:
       # new all-in-one docker image
       - image: fr3akyphantom/pitchblack-builder:latest
     environment:
-      MANIFEST_BRANCH: 'android-9.0'
+      MANIFEST_BRANCH: 'twrp-8.1'
       PBRP_BRANCH: 'android-9.0'
       VERSION: '2.9.0_test'
       VENDOR: 'realme'
